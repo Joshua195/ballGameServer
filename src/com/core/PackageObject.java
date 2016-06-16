@@ -2,9 +2,6 @@ package com.core;
 
 import java.io.Serializable;
 
-/**
- * Created by Joshua on 15/06/2016.
- */
 public class PackageObject implements Serializable{
 
     private int indetificador;

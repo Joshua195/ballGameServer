@@ -80,8 +80,17 @@ public class MainDer extends JComponent{
 
     private void fisica(float dt) throws IOException {
         if(!escuchando) {
-
             x += vx * dt;
+            if (vx > 0 && x + DIAMETRO >= ANCHO + DIAMETRO || vx < 0 && x + (DIAMETRO * 2) <= 0){
+                x = 0;
+                vx = 200;
+
+
+                Thread thread = new Thread(new PasarPelota(ip, port));
+                thread.start();
+            }
+
+            /*x += vx * dt;
             if (vx > 0 && x + DIAMETRO >= ANCHO) {
                 vx = -vx;
             } else if (vx < 0 && x + (DIAMETRO * 2) <= 0) {
@@ -93,7 +102,7 @@ public class MainDer extends JComponent{
                 Thread thread = new Thread(new PasarPelota(ip, port));
                 thread.start();
 
-            }
+            }*/
         }
     }
 
